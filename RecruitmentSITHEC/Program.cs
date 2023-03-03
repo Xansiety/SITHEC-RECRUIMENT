@@ -1,4 +1,6 @@
 using AspNetCoreRateLimit;
+using Microsoft.EntityFrameworkCore;
+using RecruitmentSITHEC;
 using RecruitmentSITHEC.Extensions;
 using RecruitmentSITHEC.Middlewares;
 using System.Text.Json.Serialization;
@@ -27,10 +29,8 @@ builder.Services.AddValidationErrors();
 
 
 // DB Context Configuration
-//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+ 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -1,8 +1,7 @@
 ﻿namespace RecruitmentSITHEC.Entities
 {
-    public class Humanos
+    public class Human : BaseEntity
     {
-        public int Id { get; set; } 
         public string Nombre { get; set; }
         public char Sexo { get; set; }
         public int Edad { get; set; }
