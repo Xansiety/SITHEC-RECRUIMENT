@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecruitmentSITHEC.DTO_s.Human
+namespace RecruitmentSITHEC.DTOs.Human
 {
     public class HumanCreateDTO
     {

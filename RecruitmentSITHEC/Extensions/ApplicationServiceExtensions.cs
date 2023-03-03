@@ -1,21 +1,20 @@
 ﻿using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Mvc;
 using RecruitmentSITHEC.Helpers.Errors;
+using RecruitmentSITHEC.Repository.Interfaces;
+using RecruitmentSITHEC.Repository.Services;
 
 namespace RecruitmentSITHEC.Extensions
 {
     public static class ApplicationServiceExtensions
-    {
-
-
+    { 
         /// <summary>
         /// Dependency Injection Configuration
         /// </summary>
         /// <param name="services"></param>
         public static void AddAplicationServices(this IServiceCollection services)
         {
-            //services.AddTransient<IHumanService, HumanService>();
-            //
+            services.AddScoped<IHumanService, HumanService>(); 
         }
 
         /// <summary>

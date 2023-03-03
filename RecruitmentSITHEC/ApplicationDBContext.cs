@@ -5,8 +5,7 @@ using System.Reflection;
 namespace RecruitmentSITHEC
 {
     public class ApplicationDBContext : DbContext
-    {
-
+    { 
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
         }
@@ -17,7 +16,6 @@ namespace RecruitmentSITHEC
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
 
         private void SeedData(ModelBuilder modelBuilder)
         {
@@ -38,9 +36,5 @@ namespace RecruitmentSITHEC
         }
 
         public DbSet<Human> Humans { get; set; }
-
-
-
-
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RecruitmentSITHEC;
 using RecruitmentSITHEC.Extensions;
 using RecruitmentSITHEC.Middlewares;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,8 @@ builder.Services.AddHttpContextAccessor();
 // Rate Limit
 builder.Services.ConfigureRateLimiting();
 
+//AutoMapper
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 builder.Services.AddControllers()
     .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -30,12 +33,12 @@ builder.Services.AddValidationErrors();
 
 // DB Context Configuration
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
- 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+var app = builder.Build(); 
 
 // Enable middleware to protect DDOS attacks
 app.UseIpRateLimiting();
@@ -45,9 +48,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 // Personalize error page response
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
-
-
-
+  
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
