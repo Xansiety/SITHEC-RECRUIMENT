@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RecruitmentSITHEC.DTO_s;
 using RecruitmentSITHEC.DTOs.Human;
+using RecruitmentSITHEC.DTOS;
 using RecruitmentSITHEC.Entities;
-using RecruitmentSITHEC.Extensions;
 using RecruitmentSITHEC.Helpers.Pagination;
 using RecruitmentSITHEC.Repository.Interfaces;
-using System.Globalization;
 
 namespace RecruitmentSITHEC.Controllers
 {
@@ -23,8 +21,7 @@ namespace RecruitmentSITHEC.Controllers
             _humanService = humanService;
             _mapper = mapper;
         }
-
-
+         
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -36,7 +33,7 @@ namespace RecruitmentSITHEC.Controllers
 
             var totalRecords = humanList.Count();
             Response.Headers.Add("x-total-records", totalRecords.ToString());
-            var response = new Paginator<HumanListDTO>(humanList, totalRecords, pagination.PageIndex, pagination.PageSize);
+            var response = new Paginator<HumanListDTO>(humanList, totalRecords, pagination.Page, pagination.RecordsPerPage);
             return Ok(response);
         }
 

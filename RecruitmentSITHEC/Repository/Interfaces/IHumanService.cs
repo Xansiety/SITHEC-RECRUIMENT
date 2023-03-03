@@ -1,4 +1,5 @@
 ﻿using RecruitmentSITHEC.DTO_s;
+using RecruitmentSITHEC.DTOS;
 using RecruitmentSITHEC.Entities;
 
 namespace RecruitmentSITHEC.Repository.Interfaces

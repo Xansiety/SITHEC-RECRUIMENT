@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RecruitmentSITHEC.DTO_s;
+using RecruitmentSITHEC.DTOS;
 using RecruitmentSITHEC.Entities;
 using RecruitmentSITHEC.Repository.Interfaces;
 
@@ -15,8 +15,8 @@ namespace RecruitmentSITHEC.Repository.Services
 
         public async Task<List<Human>> GetHumans(PaginationDTO pagination)
         { 
-            return await _context.Humans.Skip((pagination.PageIndex - 1) * pagination.PageSize)
-                .Take(pagination.PageSize).ToListAsync(); 
+            return await _context.Humans.Skip((pagination.Page - 1) * pagination.RecordsPerPage)
+                .Take(pagination.RecordsPerPage).ToListAsync(); 
         }
 
         public void AddHuman(Human human)
