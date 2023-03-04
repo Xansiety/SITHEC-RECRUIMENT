@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RecruitmentSITHEC.DTO_s.Operations
+namespace RecruitmentSITHEC.DTOs.Operations
 {
     public class OperationValues
     {
         [Required(ErrorMessage = "The field {0} is required.") ]
-        public int a { get; set; }
+        public double a { get; set; }
 
         [Required(ErrorMessage = "The field {0} is required.")]
-        public int b { get; set; }
+        public double b { get; set; }
 
         [Required(ErrorMessage = "The field {0} is required.")]
-        public int c { get; set; }
+        public double c { get; set; }
     }
 }

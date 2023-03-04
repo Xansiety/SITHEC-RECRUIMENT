@@ -7,7 +7,7 @@ namespace RecruitmentSITHEC.Entities.Configuration
     {
         public void Configure(EntityTypeBuilder<Human> builder)
         {
-            builder.ToTable("Humano");
+            builder.ToTable("Humanos");
 
             builder.Property(p => p.Id)
                     .IsRequired();

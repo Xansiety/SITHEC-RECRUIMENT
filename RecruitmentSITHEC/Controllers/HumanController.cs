@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RecruitmentSITHEC.DTOs.Human;
 using RecruitmentSITHEC.DTOS;
 using RecruitmentSITHEC.Entities;
+using RecruitmentSITHEC.Helpers.Abstracts;
 using RecruitmentSITHEC.Helpers.Errors;
 using RecruitmentSITHEC.Helpers.Pagination;
 using RecruitmentSITHEC.Repository.Interfaces;
@@ -20,6 +21,17 @@ namespace RecruitmentSITHEC.Controllers
         {
             _humanService = humanService;
             _mapper = mapper;
+        }
+
+
+        [HttpGet("mock-humans")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult GetMockHumans()
+        {
+            MockData mockData = new MockData();
+            return Ok(mockData.HumansList());
         }
 
         [HttpGet("GetAll")]
