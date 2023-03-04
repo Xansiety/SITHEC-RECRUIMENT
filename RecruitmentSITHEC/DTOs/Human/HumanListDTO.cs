@@ -1,6 +1,4 @@
-﻿using RecruitmentSITHEC.Helpers.Constantes;
-
-namespace RecruitmentSITHEC.DTOs.Human
+﻿namespace RecruitmentSITHEC.DTOs.Human
 {
     public class HumanListDTO
     {

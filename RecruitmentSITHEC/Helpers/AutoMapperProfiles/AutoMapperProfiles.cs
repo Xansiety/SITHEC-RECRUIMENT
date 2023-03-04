@@ -9,8 +9,7 @@ namespace RecruitmentSITHEC.Helpers.AutoMapperProfiles
         public AutoMapperProfiles()
         {
             CreateMap<HumanCreateDTO, Human>().ReverseMap();
-            CreateMap<Human, HumanListDTO>().ReverseMap();
-            CreateMap<HumanPatchDTO, Human>().ReverseMap();
+            CreateMap<Human, HumanListDTO>().ReverseMap(); 
         }
     }
 }

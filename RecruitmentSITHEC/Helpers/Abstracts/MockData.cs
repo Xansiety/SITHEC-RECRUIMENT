@@ -2,7 +2,7 @@
 using RecruitmentSITHEC.Helpers.Constantes;
 
 namespace RecruitmentSITHEC.Helpers.Abstracts
-{ 
+{
     public class MockData 
     {
 

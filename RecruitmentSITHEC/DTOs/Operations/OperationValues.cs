@@ -1,17 +1,18 @@
-﻿using RecruitmentSITHEC.Helpers.Constantes;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RecruitmentSITHEC.DTOs.Operations
 {
     public class OperationValues
     {
         [Required(ErrorMessage = "The field {0} is required.")]
-        public double a { get; set; } = 5;  
+        [Range(0, double.MaxValue, ErrorMessage = "Please add a valid number")]
+        public double a { get; set; } 
 
         [Required(ErrorMessage = "The field {0} is required.")]
-        public double b { get; set; } = 2;
-
+        [Range(0, double.MaxValue, ErrorMessage = "Please add a valid number")]
+        public double b { get; set; } 
+         
         [Required(ErrorMessage = "The field {0} is required.")]
-        public string Operator { get; set; } = Operadores.addition;
+        public string Operator { get; set; }  
     }
 }

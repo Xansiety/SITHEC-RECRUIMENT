@@ -10,7 +10,7 @@ using RecruitmentSITHEC.Repository.Interfaces;
 
 namespace RecruitmentSITHEC.Controllers
 {
-    [Route("api/humano")]
+    [Route("api/human")]
     [ApiController]
     public class HumanController : ControllerBase
     {

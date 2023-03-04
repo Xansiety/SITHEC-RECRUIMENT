@@ -15,6 +15,7 @@ namespace RecruitmentSITHEC.Extensions
         public static void AddAplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IHumanService, HumanService>();
+            services.AddScoped<ICalculateService, CalculateService>();
         }
 
         /// <summary>
@@ -29,7 +30,8 @@ namespace RecruitmentSITHEC.Extensions
                 {
                     builder.AllowAnyOrigin()
                         .AllowAnyMethod()
-                        .AllowAnyHeader();
+                        .AllowAnyHeader()
+                        .WithExposedHeaders("x-total-records", "x-operation-result");
                 });
             });
         }

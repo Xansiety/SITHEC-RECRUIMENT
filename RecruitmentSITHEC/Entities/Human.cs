@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RecruitmentSITHEC.Entities
+﻿namespace RecruitmentSITHEC.Entities
 {
     public class Human : IBaseEntity
     {
