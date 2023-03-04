@@ -95,7 +95,7 @@ namespace RecruitmentSITHEC.Controllers
         }
 
 
-        [HttpDelete("DeteleHuman/{id:int}")]
+        [HttpDelete("DeleteHuman/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
