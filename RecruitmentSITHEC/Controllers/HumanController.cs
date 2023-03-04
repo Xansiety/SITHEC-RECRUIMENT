@@ -39,12 +39,13 @@ namespace RecruitmentSITHEC.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<List<Human>>> Get([FromQuery] PaginationDTO pagination)
-        {
-            var humans = await _humanService.GetHumans(pagination);
-            var humanList = _mapper.Map<List<HumanListDTO>>(humans);
-            var totalRecords = humanList.Count();
-            Response.Headers.Add("x-total-records", totalRecords.ToString());
-            var response = new Paginator<HumanListDTO>(humanList, totalRecords, pagination.Page, pagination.RecordsPerPage);
+        { 
+            var humans = await _humanService.GetAllHumans(pagination.Page, pagination.RecordsPerPage); 
+            var humanList = _mapper.Map<List<HumanListDTO>>(humans.records);
+            
+            Response.Headers.Add("x-total-records", humans.totalRecords.ToString());
+
+            var response = new Paginator<HumanListDTO>(humanList, humans.totalRecords, pagination.Page, pagination.RecordsPerPage);
             return Ok(response);
         }
 

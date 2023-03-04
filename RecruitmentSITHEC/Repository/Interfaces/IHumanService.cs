@@ -7,8 +7,8 @@ namespace RecruitmentSITHEC.Repository.Interfaces
     {
         Task<Human> AddHuman(Human human);
         Task  DeleteHuman(Human human);
-        Task<Human> GetHumanByID(int id);
-        Task<List<Human>> GetHumans(PaginationDTO pagination); 
+        Task<(int totalRecords, List<Human> records)> GetAllHumans(int page, int recordsPerPage);
+        Task<Human> GetHumanByID(int id); 
         Task UpdateHuman(Human human);
         Task<bool> ValidateHumanExist(string name);
     }

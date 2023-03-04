@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RecruitmentSITHEC.DTOS;
 using RecruitmentSITHEC.Entities;
 using RecruitmentSITHEC.Repository.Interfaces;
 
@@ -27,12 +26,16 @@ namespace RecruitmentSITHEC.Repository.Services
         /// <summary>
         ///  Get all humans from database
         /// </summary>
-        /// <param name="pagination"> Parameters for pagination result </param>
+        /// <param name="page"> Page number </param>
+        /// <param name="recordsPerPage"> Total record per page </param>
         /// <returns></returns>
-        public async Task<List<Human>> GetHumans(PaginationDTO pagination)
+        public async Task<(int totalRecords, List<Human> records)> GetAllHumans(int page, int recordsPerPage)
         {
-            return await _context.Humans.Skip((pagination.Page - 1) * pagination.RecordsPerPage)
-                .Take(pagination.RecordsPerPage).ToListAsync();
+            var queryable = _context.Humans.AsQueryable();
+            var totalRecords = await queryable.CountAsync();
+            var records = await queryable.Skip((page - 1) * recordsPerPage)
+                .Take(recordsPerPage).ToListAsync();
+            return (totalRecords, records);
         }
 
 
