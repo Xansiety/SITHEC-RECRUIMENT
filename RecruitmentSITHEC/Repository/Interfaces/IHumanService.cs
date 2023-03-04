@@ -6,11 +6,11 @@ namespace RecruitmentSITHEC.Repository.Interfaces
 {
     public interface IHumanService
     {
-        void AddHuman(Human human);
-        void DeleteHuman(int id);
-        void Dispose();
-        Human GetHuman(int id); 
-        Task<List<Human>> GetHumans(PaginationDTO pagination);
-        void UpdateHuman(Human human);
+        Task<Human> AddHuman(Human human);
+        Task  DeleteHuman(Human human);
+        Task<Human> GetHumanByID(int id);
+        Task<List<Human>> GetHumans(PaginationDTO pagination); 
+        Task UpdateHuman(Human human);
+        Task<bool> ValidateHumanExist(string name);
     }
 }

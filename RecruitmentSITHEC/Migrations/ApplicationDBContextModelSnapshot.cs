@@ -43,10 +43,8 @@ namespace RecruitmentSITHEC.Migrations
                     b.Property<decimal>("Peso")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasMaxLength(1)
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<int>("Sexo")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -58,90 +56,108 @@ namespace RecruitmentSITHEC.Migrations
                             Id = 1,
                             Altura = 1.80m,
                             Edad = 20,
-                            Nombre = "Juan",
+                            Nombre = "Juan Perez",
                             Peso = 80.00m,
-                            Sexo = "H"
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 2,
                             Altura = 1.70m,
                             Edad = 25,
-                            Nombre = "Pedro",
+                            Nombre = "Pedro Hernandez",
                             Peso = 70.00m,
-                            Sexo = "H"
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 3,
                             Altura = 1.60m,
                             Edad = 30,
-                            Nombre = "Maria",
+                            Nombre = "Maria Santiago",
                             Peso = 60.00m,
-                            Sexo = "M"
+                            Sexo = 1
                         },
                         new
                         {
                             Id = 4,
-                            Altura = 1.50m,
+                            Altura = 1.60m,
                             Edad = 35,
-                            Nombre = "Jose",
+                            Nombre = "Jose Perez",
                             Peso = 50.00m,
-                            Sexo = "H"
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 5,
-                            Altura = 1.40m,
+                            Altura = 1.80m,
                             Edad = 40,
-                            Nombre = "Luis",
-                            Peso = 40.00m,
-                            Sexo = "H"
+                            Nombre = "Luis Jimenez",
+                            Peso = 50.00m,
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 6,
-                            Altura = 1.30m,
+                            Altura = 1.60m,
                             Edad = 45,
-                            Nombre = "Ana",
-                            Peso = 30.00m,
-                            Sexo = "M"
+                            Nombre = "Ana Alvarado",
+                            Peso = 80.00m,
+                            Sexo = 1
                         },
                         new
                         {
                             Id = 7,
-                            Altura = 1.20m,
+                            Altura = 1.70m,
                             Edad = 50,
-                            Nombre = "Luisa",
-                            Peso = 20.00m,
-                            Sexo = "M"
+                            Nombre = "Luisa Salazar",
+                            Peso = 60.00m,
+                            Sexo = 1
                         },
                         new
                         {
                             Id = 8,
-                            Altura = 1.10m,
+                            Altura = 1.70m,
                             Edad = 55,
-                            Nombre = "Luis",
-                            Peso = 10.00m,
-                            Sexo = "H"
+                            Nombre = "Luis Perez",
+                            Peso = 78.00m,
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 9,
-                            Altura = 1.00m,
+                            Altura = 1.80m,
                             Edad = 60,
-                            Nombre = "Luisa",
-                            Peso = 5.00m,
-                            Sexo = "M"
+                            Nombre = "Luisa Sanchez",
+                            Peso = 56.00m,
+                            Sexo = 2
                         },
                         new
                         {
                             Id = 10,
-                            Altura = 0.90m,
+                            Altura = 1.60m,
                             Edad = 65,
-                            Nombre = "Luis",
-                            Peso = 4.00m,
-                            Sexo = "H"
+                            Nombre = "Maria Salazar",
+                            Peso = 45.00m,
+                            Sexo = 1
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Altura = 1.70m,
+                            Edad = 70,
+                            Nombre = "Maria Lino",
+                            Peso = 45.00m,
+                            Sexo = 1
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Altura = 1.60m,
+                            Edad = 75,
+                            Nombre = "Luisa Perez",
+                            Peso = 45.00m,
+                            Sexo = 1
                         });
                 });
 #pragma warning restore 612, 618

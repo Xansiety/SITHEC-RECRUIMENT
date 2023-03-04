@@ -13,41 +13,42 @@ namespace RecruitmentSITHEC.Repository.Services
             _context = context;
         }
 
-        public async Task<List<Human>> GetHumans(PaginationDTO pagination)
-        { 
-            return await _context.Humans.Skip((pagination.Page - 1) * pagination.RecordsPerPage)
-                .Take(pagination.RecordsPerPage).ToListAsync(); 
+        public async Task<bool> ValidateHumanExist(string name)
+        {
+            return await _context.Humans.AnyAsync(x => x.Nombre == name);
         }
 
-        public void AddHuman(Human human)
+
+        public async Task<List<Human>> GetHumans(PaginationDTO pagination)
+        {
+            return await _context.Humans.Skip((pagination.Page - 1) * pagination.RecordsPerPage)
+                .Take(pagination.RecordsPerPage).ToListAsync();
+        }
+
+        public async Task<Human> AddHuman(Human human)
         {
             _context.Humans.Add(human);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return human;
         }
 
-        public Human GetHuman(int id)
+        public async Task<Human> GetHumanByID(int id)
         {
-            return _context.Humans.Find(id);
+            return await _context.Humans.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void UpdateHuman(Human human)
+        public async Task UpdateHuman(Human human)
         {
             _context.Humans.Update(human);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteHuman(int id)
+        public async Task DeleteHuman(Human human)
         {
-            var human = _context.Humans.Find(id);
             _context.Humans.Remove(human);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
-
+   
 
     }
 }

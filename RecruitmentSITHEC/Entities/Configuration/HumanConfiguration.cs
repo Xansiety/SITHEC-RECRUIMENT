@@ -17,14 +17,13 @@ namespace RecruitmentSITHEC.Entities.Configuration
                     .HasMaxLength(180);
 
             builder.Property(p => p.Sexo)
-                .IsRequired()
-                    .HasMaxLength(1);
+                .IsRequired();
 
             builder.Property(p => p.Edad)
                 .IsRequired();
 
             builder.Property(p => p.Altura)
-                .IsRequired(); 
+                .IsRequired();
         }
     }
 }
